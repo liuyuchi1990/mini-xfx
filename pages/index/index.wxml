@@ -1,0 +1,98 @@
+<!--index.wxml-->
+<scroll-view scroll-y class="container" style="height: 100%" enable-back-to-top>
+  <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+    <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
+      <navigator url="{{item.link}}">
+        <image lazy-load src="{{item.image_url}}" background-size="cover"></image>
+      </navigator>
+    </swiper-item>
+  </swiper>
+
+  <view class="icon_bar">
+    <view class="icon_bar_item" data-url='{{item.category_id}}' wx:for="{{channel}}" wx:key="{{item.id}}">
+     <navigator url="{{item.url}}">
+      <image  lazy-load class='icon_bar_img' src="{{item.icon_url}}"></image>
+      </navigator>
+      <view class="icon_bar_title">{{item.icon_text}}</view>
+    </view>
+  </view>
+
+  <view class="currency_goods_view_title_area" wx:for="{{contactList}}" wx:key="{{item.id}}">
+    <image class='currency_goods_view_title_area_banner' data-id='{{item.id}}' src='{{item.banner_url}}'></image>
+  </view> 
+
+  <view class="currency_title_view_title_area" style='margin-top:10rpx;' wx:key="{{item.id}}" wx:if="{{newGoods.length > 0}}">
+    <view class="currency_title_view_title_area_h">
+      精彩活动推荐
+    </view>
+  </view>
+  <view class="currency_goods_view_item" wx:if="{{newGoods.length > 0}}">
+    <view wx:for="{{newGoods}}" wx:key="{{item.id}}" class="currency_goods_view_item_a">
+      <image class="currency_goods_view_item_img" src="{{item.list_pic_url}}"></image>
+      <view class="currency_goods_view_item_name">{{item.name}}</view>
+      <view class="currency_goods_view_item_price">
+        <!-- <view class='currency_goods_view_item_price_left'> ￥
+          <span class="currency_goods_view_item_price_price">{{item.retail_price}}</span>
+        </view> -->
+        <view class='currency_goods_view_item_price_right'>进行中 </view>
+      </view>
+    </view>
+  </view>
+  <view class="currency_title_view_title_area" style='margin-top:10rpx;'>
+    <view class="currency_title_view_title_area_h">
+      商家介绍
+    </view>
+   <view class="currency_goods_view_title_area" wx:for="{{floorGoods}}" wx:key="{{item.id}}">
+    <image class='currency_goods_intro' data-id='{{item.id}}' src='{{item.banner_url}}'></image>
+  　<view class='intor_detail'>
+罗兰数字音乐教育是一所致力于拓展中国现代数字音乐
+教育的培训学校。学校拥有一流的教学环境及设备，权
+威的专业教材，梯队式专家教师团队。学校坚持高质量，规范化，个性化
+办学，面向3-12岁开设各类电声专业课程。
+    独创集体课、小组课的教学模式。让更多人感受音乐的魅力
+    ，分享音乐的新知，为培养更多的音乐人而不懈努力。目前已成为
+    拥有300多家分校，培训数十万学员的权威音乐机构。2016年被
+    中国社会艺术协会授权，成立数字音乐教育
+    委员会，独家负责全国梳子音乐教育的研究、咨询、指导、评估。
+    </view> 
+  </view> 
+   </view>
+  
+  <view class="currency_title_view_title_area" style='margin-top:10rpx;'>
+    <view class="currency_title_view_title_area_h">
+      更多精彩视频
+    </view>
+   <view hidden="{{tvphide}}">
+    <txv-video 
+        vid="{{vid}}" 
+        width="{{width}}"
+        height="{{height}}"
+        playerid="txv0" 
+        autoplay="{{autoplay}}"
+        controls="{{controls}}"
+        bindstatechange="onStateChange"
+        bindtimeupdate="onTimeUpdate"
+        showProgress="{{showProgress1}}"
+        show-progress="{{false}}"
+        bindfullscreenchange="onFullScreenChange">
+        <!-- // 支持slot，用于在video上显示UI
+        <cover-view class='txv-video-slot'>小飞象</cover-view> -->
+    </txv-video>
+</view>
+    <!-- <view>点击可以观看,左滑可以查看更多视频 </view> -->
+  </view>
+  <!-- <view class="currency_goods_view_title_area" wx:for="{{floorGoods}}" wx:key="{{item.id}}">  
+    <view class="seemore">
+      <navigator url="/pages/category/category?id={{item.id}}" class="more-a">
+        <view class='moretext'>{{'更多'+item.name}}</view>
+        <image class="moreicon" src="../../static/images/address_right.png"></image>
+      </navigator>
+    </view>
+    <!-- </view> 
+  </view> -->
+  <view class='comy_tip comy_tip_btn'>您已经到底啦 ~ </view>
+  <view class='comy_tip comy_tip_btn'>小飞象网络 提供技术支持</view>
+</scroll-view>
+<!-- <image class='back_to_top' src="../../image/top.png" bindtap='back_to_top'></image>  -->
+<!-- <button class='shall_buttom' wx:if="{{scrollTop > 422}}" open-type="share" wx:if="{{auth && isdistribution}}">
+  分享此页面给好友赚取佣金</button> -->

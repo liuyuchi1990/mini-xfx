@@ -1,0 +1,41 @@
+<view class='coupon_tabbar'>
+  <view class='coupon_tabbar_item' bindtap='changetab' data-tab='{{index}}' wx:key="{{item.key}}">
+    <image lazy-load class='addorder_img' src="../../image/addOrder.png" bindtap='OutUrl'></image>
+
+    <!-- <span wx:if="{{orderList.length > 0}}">( {{orderList.length}} )</span>
+    <span wx:if="{{orderList.length == 0}}"></span>  -->
+  </view>
+</view>
+<scroll-view scroll-y class='content_scroll'>
+  <view class='order_content'>
+    <view class="orders">
+      <view class="order" wx:for="{{listall}}" wx:key="{{item.id}}">
+
+        <scroll-view scroll-y class='goods_scroll'>
+          <view class="goods">
+            <view class="img">
+              <image src="{{item.list_pic_url}}"></image>
+            </view>
+            <view class="info">
+              <text class="name">{{item.name}}</text>
+              <text class="spec">goods_specifition_name_value</text>
+            </view>
+            <view class="status"></view>
+            <text class="number">进行中</text>
+          </view>
+          <view class="b">
+            <view class="l">价格：￥22</view>
+            <view class="r">
+              <button class="btn_query">查看报名</button>
+              <button class="btn_del">删除活动</button>
+              <button class="btn_copy">复制活动</button>
+              <button id='{{item.id}}' class="btn" bindtap='OutUrl'>修改活动</button>
+            </view>
+          </view>
+        </scroll-view>
+
+
+      </view>
+    </view>
+  </view>
+</scroll-view>
