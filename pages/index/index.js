@@ -26,7 +26,7 @@ Page({
     isdistribution: false,
     Inviter_locallaster: [],
     scrollTop: 0, //滚动监听
-    vid: 'l0025mppim4',
+    vid: 'a08283qo8i7',
     videos: []
   },
   onShareAppMessage: function() {
