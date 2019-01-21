@@ -268,10 +268,11 @@ page{
   /* border: 1px solid black; */
   float: right; 
   height: 170rpx;
-  margin: 10rpx 1rpx 10rpx 6rpx;
+  margin: 20rpx 1rpx 10rpx 3rpx;
 }	
 .icon_bar_img {
   /* border: 1px solid black;  */
+  float: none;
   width: 70rpx;
   height: 70rpx;
 }

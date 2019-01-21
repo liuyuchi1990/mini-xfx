@@ -40,6 +40,14 @@ view,image,text,navigator{
   margin-left: 1%;
   height: 500rpx;
 }
+.currency_goods_intro2 {
+  width: 98%;
+  height: auto;
+  border-radius: 8rpx;
+  margin: 0 auto;
+  margin-top: 15rpx;
+  margin-left: 1%;
+}
 .second_corner_btn_area {
   /* border: 1px solid #000; */
   margin-top: 15rpx;
