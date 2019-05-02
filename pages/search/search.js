@@ -105,12 +105,12 @@ Page({
     that.setData({
       auth: true
     })
-    // that.getOrderList();
+    this.onLoad();
   },
   getOrderList() {
     let that = this;
-    console.info('api.OrderList', api.OrderList);
-    console.info(' that.data.activeTab', that.data.activeTab);
+    // console.info('api.OrderList', api.OrderList);
+    // console.info(' that.data.activeTab', that.data.activeTab);
 
     // util.request("https://wx.sharkmeida.cn/sys/log/queryAll", {
     //   index: that.data.activeTab
@@ -831,17 +831,17 @@ Page({
 
     }
     // if (that.data.auth) {
-    util.request(api.OrderList, {
-      index: tab
-    }, 'POST').then(function (res) {
-      wx.hideLoading()
-      console.log(res);
-      if (res.errno === 0) {
-        that.setData({
-          orderList: res.data.reverse()
-        });
-      }
-    });
+    // util.request(api.OrderList, {
+    //   index: tab
+    // }, 'POST').then(function (res) {
+    //   wx.hideLoading()
+    //   console.log(res);
+    //   if (res.errno === 0) {
+    //     that.setData({
+    //       orderList: res.data.reverse()
+    //     });
+    //   }
+    // });
     // } else {
     //   wx.hideLoading()
     //   wx.showToast({
@@ -950,35 +950,103 @@ Page({
       }
     })
   },
-  delimg(e) {
-    let that = this
-    wx.showModal({
-      title: '提示',
-      content: '是否删除此图片？',
-      success: function (res) {
-        if (res.confirm) {
-          var imgs = that.data.refund_uploadimg;
-          var index = e.currentTarget.dataset.index;
-          imgs.splice(index, 1);
-          that.setData({
-            refund_uploadimg: imgs
-          });
-        }
-      },
-      fail: function (res) { },
-      complete: function (res) { },
+  imgYu: function (event) {
+    let that = this;
+    var src = event.currentTarget.id;//获取data-src
+    var urls = src.split(",")
+    //var imgList = event.currentTarget.dataset.list;//获取data-list
+    //图片预览
+    wx.previewImage({
+      current: src, // 当前显示图片的http链接
+      urls: urls // 需要预览的图片http链接列表
     })
-
-    // console.log("99999999999999")
   },
-  OutUrl(e) {
+  viewOrder: function (event) {
     wx.navigateTo({
-      url: '/pages/out/out?id=' + 1, //
+      url: '/pages/order/order?id=' + event.currentTarget.id, //
       success: function (res) {
         console.info("回退后的参数", res);
       },       //成功后的回调；
       fail: function (res) { },         //失败后的回调；
       complete: function (res) { }      //结束后的回调(成功，失败都会执行)
+    })
+  },
+  OutUrl(e) {
+    wx.navigateTo({
+      url: '/pages/out/out?id=' + e.currentTarget.id, //
+      success: function (res) {
+        console.info("回退后的参数", res);
+      },       //成功后的回调；
+      fail: function (res) { },         //失败后的回调；
+      complete: function (res) { }      //结束后的回调(成功，失败都会执行)
+    })
+  },
+  delActivity(e) {
+    let that = this;
+    let id = e.currentTarget.id.split(",");
+    console.log(id);
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除吗？',
+      success: function (sm) {
+        if (sm.confirm) {
+          wx.request({
+            //项目的真正接口，通过字符串拼接方式实现
+            url: "https://wx.sharkmeida.cn/distribution/delete",
+            header: {
+              "content-type": "application/json;charset=UTF-8"
+            },
+            data: JSON.stringify(id),
+            method: 'POST',
+            success: function (res) {
+              //参数值为res.data,直接将返回的数据传入
+              //doSuccess(res.data);
+              console.log('success');
+              that.onLoad();
+            },
+            fail: function () {
+              //doFail();
+            },
+          })
+        } else if (sm.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+
+  },
+  copyActivity(e) {
+    let that = this;
+    let id = e.currentTarget.id;
+    let data = {id:id}
+    console.log(data);
+    wx.showModal({
+      title: '提示',
+      content: '确定要复制吗？',
+      success: function (sm) {
+        if (sm.confirm) {
+          wx.request({
+            //项目的真正接口，通过字符串拼接方式实现
+            url: "https://wx.sharkmeida.cn/distribution/copy",
+            header: {
+              "content-type": "application/json;charset=UTF-8"
+            },
+            data: JSON.stringify(data),
+            method: 'POST',
+            success: function (res) {
+              //参数值为res.data,直接将返回的数据传入
+              //doSuccess(res.data);
+              console.log('success');
+              that.onLoad();
+            },
+            fail: function () {
+              //doFail();
+            },
+          })
+        } else if (sm.cancel) {
+          console.log('用户点击取消')
+        }
+      }
     })
   },
   // })

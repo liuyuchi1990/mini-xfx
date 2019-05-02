@@ -1,1 +1,1 @@
-<web-view src="https://wx.sharkmeida.cn/dist/index.html"></web-view>
+<web-view src="{{url}}"></web-view>

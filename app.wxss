@@ -32,6 +32,24 @@ view,image,text,navigator{
   margin-left: 1%;
   height: 200rpx;
 }
+
+.currency_goods_view_title_area_left {
+  width: 65%;
+  border-radius: 8rpx;
+  margin: 0 auto;
+  margin-top: 15rpx;
+  margin-left: 2%;
+  height: 200rpx;
+}
+
+.currency_goods_view_title_area_right {
+  width: 30%;
+  border-radius: 8rpx;
+  margin: 0 auto;
+  margin-top: 15rpx;
+  margin-left: 1%;
+  height: 200rpx;
+}
 .currency_goods_intro {
   width: 98%;
   border-radius: 8rpx;
@@ -39,14 +57,6 @@ view,image,text,navigator{
   margin-top: 15rpx;
   margin-left: 1%;
   height: 500rpx;
-}
-.currency_goods_intro2 {
-  width: 98%;
-  height: auto;
-  border-radius: 8rpx;
-  margin: 0 auto;
-  margin-top: 15rpx;
-  margin-left: 1%;
 }
 .second_corner_btn_area {
   /* border: 1px solid #000; */

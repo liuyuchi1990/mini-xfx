@@ -1,15 +1,17 @@
 <view class='coupon_tabbar'>
-  <view class='coupon_tabbar_item' bindtap='changetab' data-tab='{{index}}' wx:key="{{item.key}}">
-    <image lazy-load class='addorder_img' src="../../image/addOrder.png" bindtap='OutUrl'></image>
-
+  <view class='order'  data-tab='{{index}}' wx:key="{{item.key}}">
+    <!-- <image lazy-load class='addorder_img' src="../../image/addOrder.png" bindtap='OutUrl'></image> -->
+    <view class="b">
+    <button id='{{item.id}}' class="btn_add" bindtap='OutUrl'>新增活动</button>
     <!-- <span wx:if="{{orderList.length > 0}}">( {{orderList.length}} )</span>
     <span wx:if="{{orderList.length == 0}}"></span>  -->
+    </view>
   </view>
 </view>
 <scroll-view scroll-y class='content_scroll'>
   <view class='order_content'>
     <view class="orders">
-      <view class="order" wx:for="{{listall}}" wx:key="{{item.id}}">
+      <view class="order" wx:for="{{listall}}" wx:key="{{item.id}}" data-qr="{{item.qr}}">
 
         <scroll-view scroll-y class='goods_scroll'>
           <view class="goods">
@@ -18,18 +20,19 @@
             </view>
             <view class="info">
               <text class="name">{{item.name}}</text>
-              <text class="spec">goods_specifition_name_value</text>
+              <text class="spec">结束时间：{{item.end_date}}</text>
             </view>
             <view class="status"></view>
             <text class="number">进行中</text>
           </view>
           <view class="b">
-            <view class="l">价格：￥22</view>
+            <view class="l">流水：{{item.retail_price}}元 参与人数：{{item.order_num}}库存数量：{{item.product_num}}</view>
             <view class="r">
-              <button class="btn_query">查看报名</button>
-              <button class="btn_del">删除活动</button>
-              <button class="btn_copy">复制活动</button>
-              <button id='{{item.id}}' class="btn" bindtap='OutUrl'>修改活动</button>
+              <button id='{{item.id}}' class="btn_query" bindtap='viewOrder'>查看</button>
+              <button id='{{item.qr}}' class="btn_query" bindtap='imgYu'>扫码</button>
+              <button id='{{item.id}}' class="btn_del" bindtap='delActivity'>删除</button>
+              <button id='{{item.id}}' class="btn_copy" bindtap='copyActivity'>复制</button>
+              <button id='{{item.id}}' class="btn" bindtap='OutUrl'>修改</button>
             </view>
           </view>
         </scroll-view>

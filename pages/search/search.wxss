@@ -8,7 +8,7 @@ page{
     width: 100%;
     overflow: hidden;
 }
-textarea {
+ textarea {
   /* position: fixed; */
 }
 .addorder_img {
@@ -97,9 +97,9 @@ textarea {
     font-size: 30rpx;
 }
 .order .goods .spec{
-    font-size: 20rpx;
+    font-size: 25rpx;
     /* border: 1px solid #333; */
-    color: #757575;
+    color: #f23030;
 }
 .number{
     display: block;
@@ -599,7 +599,7 @@ textarea {
   z-index: 3000;
   color: #fff;
 }
-.btn_del{
+.order .b .btn_del{
     float: right;
     margin-top: 19rpx;
     margin-right: 10rpx;
@@ -612,7 +612,20 @@ textarea {
     color: #fff;
     background:red;
 } 
-.btn_query{
+.order .b .btn_add{
+    float: left;
+    margin-top: 19rpx;
+    margin-right: 10rpx;
+    height: 64.5rpx;
+    line-height: 64.5rpx;
+    text-align: center;
+    padding: 0 20rpx;
+    border-radius: 10rpx;
+    font-size: 28rpx;
+    color: #fff;
+    background:red;
+} 
+.order .b .btn_query{
     float: right;
     margin-top: 19rpx;
     margin-right: 10rpx;
@@ -625,7 +638,7 @@ textarea {
     color: #fff;
     background:#0de9b7;
 } 
-.btn_copy{
+.order .b .btn_copy{
     float: right;
     margin-top: 19rpx;
     margin-right: 10rpx;

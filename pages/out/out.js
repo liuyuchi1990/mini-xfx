@@ -5,14 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    url: 'https://wx.sharkmeida.cn/dist3/index.html?id='
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-   console.info('传递的参数=============',options);
+    this.setData({ url: this.data.url + options.id });
+
   },
 
   /**

@@ -44,6 +44,6 @@ App({
   },
   CorporateData: {
     name: 'dw',
-    title: '德威商城·乐家家国际超市'
+    title: '小飞象营销'
   }
 })

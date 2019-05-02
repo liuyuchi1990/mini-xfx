@@ -27,6 +27,7 @@
     "pages/shopping/address/address",
     "pages/shopping/addressAdd/addressAdd",
     "pages/goods/goods",
+    "pages/order/order",
     "pages/shopping/shcoupon/shcoupon",
     "pages/ucenter/bingphone/bingphone",
     "pages/ucenter/customer/customer",
@@ -75,7 +76,7 @@
         "pagePath": "pages/catalog/catalog",
         "iconPath": "image/tab_cart.png",
         "selectedIconPath": "image/tab_cart_select.png",
-        "text": "校区活动"
+        "text": "商家活动"
       },
       {
         "pagePath": "pages/ucenter/index/index",
@@ -97,5 +98,6 @@
       "version": "1.2.0",
       "provider": "wxa75efa648b60994b"
     }
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

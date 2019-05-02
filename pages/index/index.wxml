@@ -17,8 +17,13 @@
     </view>
   </view>
 
-  <view class="currency_goods_view_title_area" wx:for="{{contactList}}" wx:key="{{item.id}}">
+  <!-- <view class="currency_goods_view_title_area" wx:for="{{contactList}}" wx:key="{{item.id}}">
     <image class='currency_goods_view_title_area_banner' data-id='{{item.id}}' src='{{item.banner_url}}'></image>
+  </view>  -->
+
+  <view class="currency_goods_view_title_area"> 
+    <image class='currency_goods_view_title_area_left'  src='../../image/test/phone_left.jpg'></image>
+    <image bindtap="phonecallevent" class='currency_goods_view_title_area_right'  src='../../image/test/phone_right.jpg'></image>
   </view> 
 
   <view class="currency_title_view_title_area" style='margin-top:10rpx;' wx:key="{{item.id}}" wx:if="{{newGoods.length > 0}}">
@@ -43,21 +48,12 @@
       商家介绍
     </view>
    <view class="currency_goods_view_title_area" wx:for="{{floorGoods}}" wx:key="{{item.id}}">
-    <image class='currency_goods_intro2' data-id='{{item.id}}' src='{{item.banner_url}}' mode="widthFix"></image>
-  </view>
-    <!-- 　<view class='intor_detail'>
-<text>领航乒乓球俱乐部（现成立为驰航体育赛事策划有限公司）成立于2012年，经过六年的发展，拓展为五家有规模有实力的连锁机构。先后培训过学员近5000余名，培训次数近7万余次，培训教练近百人，成为多锁学校的体育特色课。</text>
-<text>电话:18660422992同微信
-          15098896521
-地址:
-一校区  会展路270号
-二校区   旅游路与浆水泉路交汇处洄龙小区沿街房
-三校区   历下区绿城百合南门以西40米
-四校区   雅居园小学西门对面
-五校区 东荷路奥龙小学斜对面</text>
-    </view>   -->
+    <image class='currency_goods_intro' mode="widthFix" data-id='{{item.id}}' src='{{item.banner_url}}'></image>
+  　<view class='intor_detail'>
+    </view> 
+  </view> 
    </view>
-  
+  <button formType="submit" class="submitBtn">加载更多</button>
   <view class="currency_title_view_title_area" style='margin-top:10rpx;'>
     <view class="currency_title_view_title_area_h">
       更多精彩视频

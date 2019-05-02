@@ -26,9 +26,10 @@ Page({
     isdistribution: false,
     Inviter_locallaster: [],
     scrollTop: 0, //滚动监听
-    vid: 'a08283qo8i7',
-    videos: []
-  },
+    vid: 'l0025mppim4',
+    videos: [],
+    phonecall: '18652043832'
+      },
   onShareAppMessage: function() {
     let that = this
     if (app.CorporateData.name == 'bbg') {
@@ -209,4 +210,10 @@ Page({
   onUnload: function() {
     // 页面关闭
   },
+  // 点击事件
+  phonecallevent: function (e) {
+    wx.makePhoneCall({
+      phoneNumber: this.data.phonecall
+    })
+  }
 })
